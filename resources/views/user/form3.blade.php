@@ -114,7 +114,7 @@
           <div>
             <form id="myForm" action="" method="POST">
               <div class="custom-center" style="color: red">
-                <div class="mr-2">
+                <div class="mr-2 period1">
                   งวดที่ 1 เป็นจำนวนเงิน
                 </div>
                 <div class="mr-2">
@@ -137,7 +137,7 @@
 
               <label>รายละเอียดการใช้งบประมาณ</label>
               <div>
-                <label style="color: red"><small>งวดที่ 1</small></label>
+                <label style="color: red"><small class="period2">งวดที่ 1</small></label>
                 <table class="table table-bordered" id="table">
                   <thead>
                     <tr>
@@ -225,11 +225,14 @@
         cardClone.remove();
       });
     }
-
+    let i = 1;
     $('#cloneButton').click(function() {
+      i++;
       // คัดลอก Element
       var cardClone = $('.templat').first().clone();
-      
+
+      cardClone.find('.period1').text("งวดที่ " + i + " เป็นจำนวนเงิน");
+      cardClone.find('.period2').text("งวดที่ " + i + "");
       // เพิ่ม Element ที่คัดลอกลงใน DOM
       $('.templat').last().after(cardClone);
 
